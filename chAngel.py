@@ -15,7 +15,7 @@ def main():
 	ifMax = iface('None')
 	maxSum = 0
 
-	print('Copy & Paste bandwidth and delay interface chunk:')
+	print("Copy & Paste 'sh run | i interface Tunnel|delay|bandwidth' output chunk:")
 	for line in sys.stdin:
 		if(line == '\n'):
 			break
