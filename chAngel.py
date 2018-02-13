@@ -35,32 +35,17 @@ def main():
 			maxSum = i.Csum
 			ifMax = i
 
+
 	print('---------Paste to CLI exec mode------------')
+	print('tclsh')
 	for i in ifList: 
 		if(i == ifMax):
-			print('!\n\
-tclsh\n\
-!\n\
-if { [regexp "%s " [exec show ip interface brief] ] } {\n\
-!\n\
-ios_config "interface %s" "no delay"\n\
-!\n\
-}\n\
-exit\
-' % (i.name, i.name))
+			print('if { [regexp "%s " [exec show ip interface brief] ] } { ios_config "interface %s" "no delay" }' % (i.name, i.name) )
 		else:
-			print('!\n\
-tclsh\n\
-!\n\
-if { [regexp "%s " [exec show ip interface brief] ] } {\n\
-!\n\
-ios_config "interface %s" "delay 1000000"\n\
-!\n\
-}\n\
-exit\
-' % (i.name, i.name))
+			print('if { [regexp "%s " [exec show ip interface brief] ] } { ios_config "interface %s" "delay 1000000" }' % (i.name, i.name) )
+	print('exit')
 
 	input()
 
 if(__name__ == '__main__'):
- main()
+	main()
