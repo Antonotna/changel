@@ -56,7 +56,7 @@ def main():
 				tclOut.append('if { [regexp "%s " [exec show ip interface brief] ] } { ios_config "interface %s" "no delay" "end" }' % (i.name, i.name) )
 			else:
 				tclOut.append('if { [regexp "%s " [exec show ip interface brief] ] } { ios_config "interface %s" "delay 1000000" "end" }' % (i.name, i.name) )
-		pyperclip.copy('tclsh\n\n' + ';'.join(tclOut) + ' ; tclquit\n')
+		pyperclip.copy('tclsh\n\n' + ';'.join(tclOut) + '\ntclquit\n')
 
 	else:
 		print('---------Paste to CLI exec mode------------')
